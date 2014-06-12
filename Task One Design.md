@@ -8,8 +8,8 @@ Creating a currency converter that
  
  Currencys required: GBP (Great British Pound) EUR (Euro) USD (US Dollar) JPY (Japanese Yen)
  
- Tests
- =====
+Tests
+=====
  
  Import symbols (GBP, EUR, USD, JPY)
  Import exchange rates for each currency (1, 1.2, 1.6, 200)
