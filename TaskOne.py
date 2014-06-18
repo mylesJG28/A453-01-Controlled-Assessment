@@ -1,28 +1,49 @@
 allowables = ["pounds", "dollars", "euro", "yen"]
-rates = [1,1.7,1.25, 173]
+rates = [1,1.7,1.25, 173] #shows exchange rates for each of the currencies
 pounds = 'pounds'
 dollars = 'dollars'
 yen = 'yen'
 euro = 'euro'
-print("Welcome to the currency converter")
+print("Welcome to the currency converter") #when it is started this will be shown so they know what it is
 
-var1 = None
-while var1 not in range(len(allowables)):
-    print('Please type the currency you wish to convert from')
-    for index, currency in enumerate(allowables):
-        print ('enter {0} for {1}'.format(index, currency))
-    var1 = input("Please type what currency you wish to convert from ")
-var1 = int(var1)
+def getCurr(dir):
+    answer = None
+    while answer not in range(len(allowables)):
+        print('Please type the currency you wish to convert {0}'.format(dir))
+        for index, currency in enumerate(allowables):
+            print ('enter {0} for {1}'.format(index, currency))
+        answer = input("Please type what currency you wish to convert {0}".format(dir))
+    return (answer)    
 
-var2 = None
-while var2 not in range(len(allowables)):
-    print('Please type the currencyyou wish to convert to')
-    for index, currency in enumerate(allowables):
-        print ('enter {0} for {1}'.format(index, currency))
-    var2 = input("Please type the currency that you wish to convert to ")
-var2 = int(var2)
+def getVal(c1, c2, c3):
+    
+    ammount = c3/rates[c1] *rates[c2]
+    return (ammount)
 
-var3 = float(input("Please type the amount of currency you wish to convert "))
+if __name__ == "__main__":
+    var1 = getCurr('from')
+    var2 = getCurr('to')
+    var3 = float(input("Please type the amount of currency you wish to convert "))
+    print('Your converted ammount is {0:.2f}{1}'.format(getVal(var1,var2,var3),allowables[var2]))
 
-ammount = var3/rates[var1] *rates[var2]
-print(' your converted ammount is {0} {1}'.format(ammount,allowables[var2]))
+    
+# var1 = None
+# while var1 not in range(len(allowables)):
+#     print('Please type the currency you wish to convert from')
+#     for index, currency in enumerate(allowables):
+#         print ('enter {0} for {1}'.format(index, currency))
+#     var1 = input("Please type what currency you wish to convert from ")
+# var1 = int(var1)
+
+# var2 = None
+# while var2 not in range(len(allowables)):
+#     print('Please type the currencyyou wish to convert to')
+#     for index, currency in enumerate(allowables):
+#         print ('enter {0} for {1}'.format(index, currency))
+#     var2 = input("Please type the currency that you wish to convert to ")
+# var2 = int(var2)
+
+# var3 = float(input("Please type the amount of currency you wish to convert "))
+
+# ammount = var3/rates[var1] *rates[var2]
+# print(' your converted ammount is {0} {1}'.format(ammount,allowables[var2]))
