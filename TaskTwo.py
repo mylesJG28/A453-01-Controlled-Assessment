@@ -1,24 +1,4 @@
 #answer = raw_input("Are You Creating An Entry [Press 1] \nOr Are You Searching An Entry [Press 2] ") #raw_input will save this
-answer = raw_input("Are You Creating An Entry [Press 1] \nOr Are You Searching An Entry [Press 2] ")
-
-if answer == "1" :
-    print ("This is where we create a new entry")
-    lastname = raw_input("What is the persons last name?")
-    firstname = raw_input("What is the persons last name?")
-    phone = raw_input("What is the persons phone number?")   
-    email = raw_input("What is the persons email address?")
-    address = raw_input("What is the persons address?")
-    
- if answer == "2" :
-     print ("This is where we search")
-     searchcriteria = raw_input("Enter your search Criteria: Name, Phone Number, Address, Email, Postcode, or Town ")
-     print searchcriteria
-     temp1 = open("addressbookdata","r")
-     for line in temp1:
-         if searchcriteria in line:
-             print line 
-         else:
-             print ("No results found")
 
 addresses = []
 surnames = []
@@ -30,9 +10,11 @@ def ask(item):
 def getAddresses(): # takes the addresses
     with open('addressbook.csv') as book:#opens the address book ready to stroe the information in it 
         data = book.read()#stores data in it
+        print (data)
         for line in data.split('\r\n'):
             address= line.split(',')
             addresses.append(address)
+            
 def getSrnames():
     for item in addresses:
         surnames.append(item[0])
@@ -44,11 +26,32 @@ def getRecord(surname):
                 return (item)
     else:
         return ('no record found')
-        
-getAddresses()
-getSrnames()
 
-
+if __name__ == '__main__':        
+    '''
+    This allows us to run automated tests without requiring the user inputs
+    '''
+    getAddresses()
+    getSrnames()
+    answer = raw_input("Are You Creating An Entry [Press 1] \nOr Are You Searching An Entry [Press 2] ")
+    if answer == "1" :
+        print ("This is where we create a new entry")
+        lastname = raw_input("What is the persons last name?")
+        firstname = raw_input("What is the persons last name?")
+        phone = raw_input("What is the persons phone number?")   
+        email = raw_input("What is the persons email address?")
+        address = raw_input("What is the persons address?")
+    
+    if answer == "2" :
+        print ("This is where we search")
+        searchcriteria = raw_input("Enter your search Criteria: Name, Phone Number, Address, Email, Postcode, or Town ")
+        print searchcriteria
+        temp1 = open("addressbookdata","r")
+        for line in temp1:
+            if searchcriteria in line:
+                print line 
+            else:
+                print ("No results found")
 
 # lastname = ask('lastname')
 # fisrstname = ask('first name')
