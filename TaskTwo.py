@@ -33,7 +33,7 @@ if __name__ == '__main__':
     getAddresses()
     getSurnames()
     answer = raw_input("Are You Creating An Entry [Press 1] \nOr Are You Searching An Entry [Press 2] ")
-    if answer == "1" :
+    if answer == "1" : #this will only happen if 
         print ("This is where we create a new entry")
         lastname = raw_input("What is the persons last name?")
         firstname = raw_input("What is the persons last name?")
