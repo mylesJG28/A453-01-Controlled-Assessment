@@ -20,8 +20,8 @@ print result
 From this plan I was going to attempt using python to make this happen
  my first test was as followed:
 
-Test One
-===========
+Test One - python coding
+==========================
 
  var1 = None
  while var1 not in range(len(allowables)):
@@ -48,8 +48,9 @@ Test One
 this works, but I decided to make some changes to make it work better.
 in the end I decided on using:
 
-Test Two
-============
+Test Two - python coding
+============================
+
 allowables = ["pounds", "dollars", "euro", "yen"]
 rates = [1,1.7,1.25, 173] #shows exchange rates for each of the currencies
 pounds = 'pounds'
